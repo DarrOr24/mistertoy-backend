@@ -7,25 +7,46 @@ import { loggerService } from './services/logger.service.js'
 import { toyService } from './services/toy.service.js'
 
 const app = express()
-
-const corsOptions = {
-  origin: [
-    'http://127.0.0.1:8080',
-    'http://localhost:8080',
-
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-  ],
-  credentials: true,
-}
-// App Configuration
-app.use(express.static('public'))
+// console.log('process.env.NODE_ENV:', process.env.NODE_ENV)
+//* App Configuration
 app.use(cookieParser()) // for res.cookies
 app.use(express.json()) // for req.body
-app.use(cors(corsOptions))
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('public'))
+} else {
+    const corsOptions = {
+        origin: [
+            'http://127.0.0.1:3000',
+            'http://localhost:3000',
+            'http://localhost:5173',
+            'http://127.0.0.1:5173',
+            'http://localhost:5174',
+            'http://127.0.0.1:5174',
+        ],
+        credentials: true,
+    }
+    app.use(cors(corsOptions))
+}
+
+// const corsOptions = {
+//   origin: [
+//     'http://127.0.0.1:8080',
+//     'http://localhost:8080',
+
+//     'http://localhost:5173',
+//     'http://127.0.0.1:5173',
+
+//     'http://localhost:5174',
+//     'http://127.0.0.1:5174',
+//   ],
+//   credentials: true,
+// }
+// // App Configuration
+// app.use(express.static('public'))
+// app.use(cookieParser()) // for res.cookies
+// app.use(express.json()) // for req.body
+// app.use(cors(corsOptions))
 
 
 // **************** Toys API ****************:
