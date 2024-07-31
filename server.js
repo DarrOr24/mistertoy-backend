@@ -29,25 +29,6 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions))
 }
 
-// const corsOptions = {
-//   origin: [
-//     'http://127.0.0.1:8080',
-//     'http://localhost:8080',
-
-//     'http://localhost:5173',
-//     'http://127.0.0.1:5173',
-
-//     'http://localhost:5174',
-//     'http://127.0.0.1:5174',
-//   ],
-//   credentials: true,
-// }
-// // App Configuration
-// app.use(express.static('public'))
-// app.use(cookieParser()) // for res.cookies
-// app.use(express.json()) // for req.body
-// app.use(cors(corsOptions))
-
 
 // **************** Toys API ****************:
 // GET toys
