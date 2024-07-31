@@ -30,85 +30,33 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// **************** Toys API ****************:
-// GET toys
-app.get('/api/toy', (req, res) => {
-  const { filterBy = {}, sortBy = {}, pageIdx } = req.query
-  toyService.query(filterBy, sortBy, pageIdx)
-    .then(toys => {
-      res.send(toys)
-    })
-    .catch(err => {
-      loggerService.error('Cannot load toys', err)
-      res.status(400).send('Cannot load toys')
-    })
-})
 
-app.get('/api/toy/:toyId', (req, res) => {
-  const { toyId } = req.params
-  toyService.get(toyId)
-    .then(toy => {
-      res.send(toy)
-    })
-    .catch(err => {
-      loggerService.error('Cannot get toy', err)
-      res.status(400).send(err)
-    })
-})
 
-app.post('/api/toy', (req, res) => {
-  const { name, price, labels } = req.body
-  const toy = {
-    name,
-    price: +price,
-    labels,
-  }
-  toyService.save(toy)
-    .then(savedToy => {
-      res.send(savedToy)
-    })
-    .catch(err => {
-      loggerService.error('Cannot add toy', err)
-      res.status(400).send('Cannot add toy')
-    })
-})
-
-app.put('/api/toy', (req, res) => {
-  const { name, price, _id, labels } = req.body
-  const toy = {
-    _id,
-    name,
-    price: +price,
-    labels,
-  }
-  toyService.save(toy)
-    .then(savedToy => {
-      res.send(savedToy)
-    })
-    .catch(err => {
-      loggerService.error('Cannot update toy', err)
-      res.status(400).send('Cannot update toy')
-    })
-})
-
-app.delete('/api/toy/:toyId', (req, res) => {
-  const { toyId } = req.params
-  toyService.remove(toyId)
-    .then(msg => {
-      res.send({ msg, toyId })
-    })
-    .catch(err => {
-      loggerService.error('Cannot delete toy', err)
-      res.status(400).send('Cannot delete toy, ' + err)
-    })
-})
-
-// Fallback
-app.get('/**', (req, res) => {
-  res.sendFile(path.resolve('public/index.html'))
-})
+// // Fallback
+// app.get('/**', (req, res) => {
+//   res.sendFile(path.resolve('public/index.html'))
+// })
 
 // Listen will always be the last line in our server!
+
+
+
+import { authRoutes } from './api/auth/auth.routes.js'
+import { userRoutes } from './api/user/user.routes.js'
+import { toyRoutes } from './api/toy/toy.routes.js'
+
+// routes
+app.use('/api/auth', authRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/toy', toyRoutes)
+
+// Make every unmatched server-side-route fall back to index.html
+// So when requesting http://localhost:3030/index.html/car/123 it will still respond with
+// our SPA (single page app) (the index.html file) and allow vue-router to take it from there
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
+})
 
 const port = process.env.PORT || 3030
 app.listen(port, () => {
