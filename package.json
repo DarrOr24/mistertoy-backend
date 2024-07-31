@@ -6,7 +6,7 @@
     "start": "node server.js",
     "dev": "nodemon --ignore \"./data\" server.js",
     "server:dev": "nodemon server.js",
-    "prod": "set NODE_ENV=production&&node server.js"
+    "server:prod": "set NODE_ENV=production&&node server.js"
   },
   "author": "Darr Or",
   "license": "ISC",
