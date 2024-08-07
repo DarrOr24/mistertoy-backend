@@ -2,26 +2,17 @@ import { toyService } from './toy.service.js'
 import { logger } from '../../services/logger.service.js'
 
 
-// // GET toys
-// app.get('/api/toy', (req, res) => {
-//   const { filterBy = {}, sortBy = {}, pageIdx } = req.query
-//   toyService.query(filterBy, sortBy, pageIdx)
-//     .then(toys => {
-//       res.send(toys)
-//     })
-//     .catch(err => {
-//       loggerService.error('Cannot load toys', err)
-//       res.status(400).send('Cannot load toys')
-//     })
-// })
+
 
 export async function getToys(req, res) {
     try {
-        const { filterBy = {}, sortBy = {}, pageIdx } = req.query
-        // const filterBy = {
-        //     txt: req.query.txt || '',
-        // }
-        const toys = await toyService.query(filterBy, sortBy, pageIdx)
+        // const { filterBy = {}, sortBy = {}, pageIdx } = req.query
+        const filterBy = {
+            txt: req.query.txt || '',
+        }
+
+        // const toys = await toyService.query(filterBy, sortBy, pageIdx)
+        const toys = await toyService.query(filterBy)
         res.json(toys)
     } catch (err) {
         logger.error('Failed to get toys', err)
@@ -29,17 +20,7 @@ export async function getToys(req, res) {
     }
 }
 
-// app.get('/api/toy/:toyId', (req, res) => {
-//   const { toyId } = req.params
-//   toyService.get(toyId)
-//     .then(toy => {
-//       res.send(toy)
-//     })
-//     .catch(err => {
-//       loggerService.error('Cannot get toy', err)
-//       res.status(400).send(err)
-//     })
-// })
+
 
 export async function getToyById(req, res) {
     try {

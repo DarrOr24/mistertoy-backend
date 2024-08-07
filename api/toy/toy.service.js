@@ -12,7 +12,7 @@ export const toyService = {
 	update
 }
 
-async function query(filterBy = { txt: '' }, sortBy = {}, pageIdx) {
+async function query(filterBy = { txt: '' }, sortBy = {}, pageIdx = 0) {
 	try {
 		const criteria = {
 			name: { $regex: filterBy.txt, $options: 'i' },
