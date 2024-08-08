@@ -336,3 +336,38 @@
 7.8.2024, 11:17:16 - ERROR - Failed to Login Error: Invalid username or password 
 7.8.2024, 11:17:23 - DEBUG - auth.service - login with username: darr 
 7.8.2024, 11:17:24 - INFO - User login:  | {"_id":"66b389c453f32bd4643229c7","username":"darr","fullname":"darr","score":0} 
+7.8.2024, 11:24:02 - INFO - server.js loaded... 
+7.8.2024, 11:24:02 - INFO - Server is running on port: 3030 
+7.8.2024, 11:24:47 - INFO - server.js loaded... 
+7.8.2024, 11:24:47 - INFO - Server is running on port: 3030 
+7.8.2024, 11:28:01 - INFO - server.js loaded... 
+7.8.2024, 11:28:01 - INFO - Server is running on port: 3030 
+8.8.2024, 10:48:39 - INFO - Server is running on port: 3030 
+8.8.2024, 10:48:39 - INFO - server.js loaded... 
+8.8.2024, 10:56:34 - INFO - server.js loaded... 
+8.8.2024, 10:56:34 - INFO - Server is running on port: 3030 
+8.8.2024, 10:57:20 - DEBUG - auth.service - login with username: ilan 
+8.8.2024, 10:57:21 - INFO - User login:  | {"_id":"66b2432b30335bf822be8f48","username":"ilan","fullname":"ilan","score":0,"isAdmin":true} 
+8.8.2024, 10:58:06 - DEBUG - auth.service - login with username: ilan 
+8.8.2024, 10:58:06 - INFO - User login:  | {"_id":"66b2432b30335bf822be8f48","username":"ilan","fullname":"ilan","score":0,"isAdmin":false} 
+8.8.2024, 10:58:23 - INFO - Req was made | / 
+8.8.2024, 10:58:33 - WARN - ilanattempted to perform admin action 
+8.8.2024, 10:59:02 - DEBUG - auth.service - login with username: ilan 
+8.8.2024, 10:59:02 - INFO - User login:  | {"_id":"66b2432b30335bf822be8f48","username":"ilan","fullname":"ilan","score":0,"isAdmin":true} 
+8.8.2024, 11:01:32 - INFO - Req was made | / 
+8.8.2024, 11:13:12 - INFO - server.js loaded... 
+8.8.2024, 11:13:12 - INFO - Server is running on port: 3030 
+8.8.2024, 11:14:08 - INFO - server.js loaded... 
+8.8.2024, 11:14:08 - INFO - Server is running on port: 3030 
+8.8.2024, 11:14:19 - INFO - server.js loaded... 
+8.8.2024, 11:14:19 - INFO - Server is running on port: 3030 
+8.8.2024, 11:14:54 - INFO - Req was made | / 
+8.8.2024, 11:15:16 - ERROR - cannot add toy msg 66abc2cb41e544384f8a8d60 | ReferenceError: utilService is not defined 
+8.8.2024, 11:15:16 - ERROR - Failed to update toy | ReferenceError: utilService is not defined 
+8.8.2024, 11:17:13 - INFO - server.js loaded... 
+8.8.2024, 11:17:13 - INFO - Server is running on port: 3030 
+8.8.2024, 11:18:46 - INFO - server.js loaded... 
+8.8.2024, 11:18:46 - INFO - Server is running on port: 3030 
+8.8.2024, 11:24:17 - INFO - Req was made | / 
+8.8.2024, 11:24:47 - INFO - Req was made | / 
+8.8.2024, 11:25:57 - INFO - Req was made | / 
